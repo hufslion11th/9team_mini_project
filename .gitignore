@@ -1,0 +1,49 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+# Django
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+# IDEs
+.idea/
+.vscode/
+# Environment
+.env
+venv/
+.env.local
+.env.*.local
+node_modules/
+venv/
+pipenv/
+# Build/compiled files
+*.pyc
+*.class
+*.o
+*.so
+*.obj
+*.dll
+*.exe
+# Cache files
+*.swp
+*.lock
+*.bak
+*~
+# Static files
+/staticfiles/
+# Unit test / coverage reports
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+# Translations
+*.mo
+# Django-CMS
+cmsmedia/
