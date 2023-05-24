@@ -15,12 +15,17 @@ header {
   font-weight: bold;
 }
 .logo_container {
+  height: 100%;
   margin-left: 64px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.menu_container {
+  margin-right: 64px;
 }
 nav {
   width: 500px;
-  margin-right: 64px;
 }
 ul{
   display: flex;
@@ -41,6 +46,23 @@ li:hover {
 }
 main .filter_container {
   padding: 20px 150px;
+}
+main .filter_container .btn_container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+main .filter_container .btn_container .btn_search {
+  background-color: #00F0FF;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+main .filter_container .btn_container .btn_search:hover {
+  color: #5A96D9;
 }
 main .filter_container form {
   display: flex;
@@ -76,6 +98,55 @@ main .group_list .group_menubar {
 main .group_list .group_menubar ul{
   display: flex;
   justify-content: space-around;
+}
+main .group_list .group_gallary {
+  display: flex;
+  gap: 30px;
+  max-width: 990px;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+}
+main .group_list .group_gallary .group {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 200px;
+  height: 450px;
+  padding: 10px;
+}
+main .group_list .group_gallary .group img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+main .group_list .group_gallary .group .group_name {
+  text-align: center;
+} 
+main .group_list .group_gallary .group .group_info {
+  display: flex;
+  gap: 5px;
+  white-space : nowrap;
+  margin-bottom: 10px;
+  
+}
+main .group_list .group_gallary .group .group_vibe {
+  white-space : nowrap;
+  overflow: scroll;
+}
+  main .group_list .group_gallary .group .group_introduce {
+  display: block;
+  white-space : nowrap;
+  text-overflow : ellipsis;
+  overflow: hidden;
+}
+main .group_list .group_gallary .group .group_info .group_infobox{
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 2px;
+  color: red;
+  display: inline-block;
+  background-color: #E5E5E5;
 }
 main .group_list table {
   border: 1px solid #000000;
