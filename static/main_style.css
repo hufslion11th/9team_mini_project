@@ -15,6 +15,7 @@ header {
   font-weight: bold;
 }
 .logo_container {
+  display: inline-block;
   height: 100%;
   margin-left: 64px;
   cursor: pointer;

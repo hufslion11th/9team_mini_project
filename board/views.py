@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from .forms import PostForm
 from django.core import serializers
 from django.http import HttpResponse
 from board.models import Group, Fields, Natures
@@ -11,24 +10,25 @@ def main(request):      #메인
     return render(request, "main.html", {'groups' : glist})
 
 
-def detail(request):
-    return render(request, "detail.html")
+def detail(request, pk):
+    group = Group.objects.get(id=pk)
+    return render(request, "detail.html", {"group": group})
 
 def register(request):
     return render(request, "register.html")
 
-def create(request):
-    if request.method == "GET":
-        postForm = PostForm()
-        context = {'postForm': postForm} #{key:값}
-        return render(request, "board/create.html", context)
-    elif request.method =="POST":
-        postForm = PostForm(request.POST)
+# def create(request):
+#     if request.method == "GET":
+#         postForm = PostForm()
+#         context = {'postForm': postForm} #{key:값}
+#         return render(request, "board/create.html", context)
+#     elif request.method =="POST":
+#         postForm = PostForm(request.POST)
 
-        if postForm.is_valid():
-            post = postForm.save(commit=False)
-            post.save()
-        return redirect("/admin/")
+#         if postForm.is_valid():
+#             post = postForm.save(commit=False)
+#             post.save()
+#         return redirect("/admin/")
 
 def search(request):    #필터를 위한 함수(작성중)
     postlist = Group.objects.all()

@@ -36,7 +36,7 @@
       {% for group in groups %}
       <div class="group">
         <img src="{{group.logo.url}}" alt="" class="group_img">
-        <h3 class="group_name"><span>{{group.name}}</span></h3>
+        <h3 class="group_name"><a href="{% url 'groups:detail' group.pk %}">{{group.name}}</a></h3>
         <div class="group_info"><span class="group_infobox">{{group.group_type}}</span><span class="group_infobox">{{group.field}}</span></div>
         <div class="group_info group_vibe">
           <span class="group_infobox">{{group.natures}}</span>

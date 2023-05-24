@@ -4,34 +4,28 @@
   <body>
     <div class="text_register">상세페이지</div>
     <div class="box_out">
-      <h2>
-        <label>제목:</label>
-        <input type="text" />
-      </h2>
-      <br />
       <fieldset class="fieldset_group">
         <p>
-          <label>그룹명 </label>
-          <input type="text" />
+          <img src="{{group.logo.url}}" alt="" width="200px" height="200px">
         </p>
         <p>
-          <label>모집기간 </label>
-          <input type="text" />
+          <label>그룹명 {{group.name}}</label>
         </p>
         <p>
-          <label>모집인원 </label>
-          <input type="text" />
+          <label>모집기간 {{group.deadline}}</label>
         </p>
         <p>
-          <label>지원링크 </label>
-          <input type="text" />
+          <label>모집인원 {{group.recruitment_count}}</label>
+        </p>
+        <p>
+          <label>지원링크 {{group.recruiting_url}}</label>
         </p>
 
         <p>
-          <input class="button" type="button" value="동아리" />
-          <input class="button" type="button" value="IT" />
-          <input class="button" type="button" value="화목" />
-          <input class="button" type="button" value="열정적" />
+          <input class="button" type="button" value="{{group.group_type}}" />
+          <input class="button" type="button" value="{{group.field}}" />
+          <input class="button" type="button" value="{{group.natures}}" />
+
         </p>
       </fieldset>
       <br />
@@ -39,7 +33,7 @@
       <fieldset class="fieldset_text">
         <p>
           <label>Text </label>
-          <input type="text" />
+          <p>{{group.short_introduce}}</p>
         </p>
       </fieldset>
     </div>

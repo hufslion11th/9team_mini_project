@@ -11,7 +11,9 @@
 </head>
 <body>
   <header>
-    <div class="logo_container"><img src="{% static 'logo1.png' %}" alt="" width="70px"></div>
+    <a class="logo_container" href="{% url 'groups:main' %}">
+      <img src="{% static 'logo1.png' %}" alt="" width="70px">
+    </a>
     <nav class="menu_container">
       <ul>
         <li><a>그룹검색/보기</a></li>
