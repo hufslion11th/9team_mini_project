@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-{%load static%}
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
-    <title>등록하기</title>
-  </head>
+{% extends 'base.html' %}
+
+{% block content %}
   <body>
-    <nav class="navbar">
-      <div class="navbar_logo">
-        <a href="">LOGO</a>
-      </div>
-      <ul class="navbar_menu">
-        <li><a href="#">그룹전체/보기</a></li>
-        <li><a href="#">로그인</a></li>
-        <li><a href="#">회원가입</a></li>
-      </ul>
-      <a href="#" class="navbar__toggleBtn">
-        <i class="fas fa-hamburger"></i>
-      </a>
-    </nav>
     <div class="text_register">등록하기</div>
     <div class="box_out">
       <fieldset class="fieldset_title">
@@ -80,7 +60,7 @@
           <input class="button" type="button" value="전문적" />
         </p>
       </div>
-      <fieldset class="fieldset-text">
+      <fieldset class="fieldset_text">
         <p>
           <label>Text </label>
           <input type="text" />
@@ -88,4 +68,4 @@
       </fieldset>
     </div>
   </body>
-</html>
+{%endblock%}

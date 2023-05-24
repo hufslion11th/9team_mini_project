@@ -15,22 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-import board.views
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', board.views.main),
+    path('board/', include("board.urls")),
+] 
 
-    # path('getdata', board.views.getdata),
-    # path('getpostpage', board.views.getpostpage),
+#이미지 URL 설정
 
-    # path('board/info', board.views.main),
-
-    path('board/create', board.views.create),
-    path('board/list', board.views.list),
-    path('board/read/<int:bid>', board.views.read),
-]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

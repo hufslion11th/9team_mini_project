@@ -1,9 +1,21 @@
 from django.shortcuts import render, redirect
+from .forms import PostForm
+from django.core import serializers
+from django.http import HttpResponse
+from board.models import Group, Fields, Natures
 
 # Create your views here.
 
 def main(request):      #메인
-    return render(request, "main.html")
+    glist = Group.objects.all()
+    return render(request, "main.html", {'groups' : glist})
+
+
+def detail(request):
+    return render(request, "detail.html")
+
+def register(request):
+    return render(request, "register.html")
 
 def create(request):
     if request.method == "GET":
@@ -18,22 +30,19 @@ def create(request):
             post.save()
         return redirect("/admin/")
 
-def list(request):      #목록
-    posts= Post.objects.all().order_by('-id') #게시글 나열, 정렬
-    context = { 'posts': posts}
-    return render(request, 'board/list.html', context)
-#
-def read(request, bid):      #한가지 게시글만 읽어오기
-    post = Post.objects.get(id=bid) #게시글 나열, 정렬
-    context = { 'post ': post}
-    return render(request, 'board/read.html', context)
-
-def info(request):      #상세
-    return render(request, "info.html")
-
-# def getdata(request):
-#     num1 = request.GET.get("var1")
-#     num2 = request.GET.get("var2")
-#     print(int(num1)+int(num2))
-#
-#     return render(request, "getdata.html")
+def search(request):    #필터를 위한 함수(작성중)
+    postlist = Group.objects.all()
+    fieldlist = Fields.objects.all()
+    naturelist = Natures.objects.all()
+    name = request.GET.get('name', '')  # 검색어
+    fname = request.GET.get('fname', '')
+    nname = request.GET.get('nname', '')
+    if name:
+        postlist = postlist.filter(
+            Q(subject__icontains=name) |  # 제목 검색
+            Q(content__icontains=fname) |  # 분야 검색
+            Q(answer__content__icontains=nname) # 분위기 검색
+            # Q(author__username__icontains=) |  # 글쓴이 검색
+        ).distinct()  # get 값을 가지는 필드의 내용을 가져 오기
+    json_post_list = serializers.serialize("json", postlist)
+    return HttpResponse(json_post_list)
