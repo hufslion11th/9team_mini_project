@@ -30,7 +30,7 @@ a {
   padding: 8px 30px;
 }
 
-.text_register {
+register .text_register {
   display: flex;
   height: 50px;
   justify-content: center;
@@ -38,7 +38,7 @@ a {
   padding: 25px;
   font-size: 30px;
 }
-.box_out {
+register .box_out {
   width: 1323px;
   height: 784px;
   left: calc(50% - 1323px / 2 + 0.5px);
@@ -53,7 +53,7 @@ a {
   margin: auto;
   margin-bottom: 41px;
 }
-.fieldset-title {
+register .fieldset_title {
   width: 1259px;
   height: 42px;
   left: calc(50% - 1259px / 2 + 0.5px);
@@ -62,7 +62,7 @@ a {
   border-radius: 5px;
 }
 
-.fieldset-group {
+register .fieldset_group {
   width: 1259px;
   height: 187px;
   left: 91px;
@@ -71,7 +71,7 @@ a {
   border-radius: 5px;
 }
 
-.fieldset-text {
+register .fieldset_text {
   width: 1259px;
   height: 250px;
   left: 91px;
@@ -80,10 +80,53 @@ a {
   border-radius: 5px;
 }
 
-.button {
+register .button {
   width: 50px;
   height: 20px;
   left: 261px;
   top: 538px;
   background: #a1c1e6;
+}
+
+detail .text_register {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin: auto;
+  padding: 25px;
+  font-size: 30px;
+}
+
+detail .fieldset_group {
+  width: 1259px;
+  height: 187px;
+  left: 91px;
+  top: 307px;
+  border: 2px solid #9f9f9f;
+  border-radius: 5px;
+}
+
+detail .box_out {
+  width: 1323px;
+  height: 784px;
+  left: calc(50% - 1323px / 2 + 0.5px);
+  top: calc(50% - 784px / 2 + 79px);
+  justify-content: center;
+  border: 2px solid #9f9f9f;
+  border-radius: 10px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 35px;
+  padding-bottom: 68px;
+  margin: auto;
+  margin-bottom: 41px;
+}
+
+detail .fieldset_text {
+  width: 1259px;
+  height: 250px;
+  left: 91px;
+  top: 665px;
+  border: 1px solid #000000;
+  border-radius: 5px;
 }

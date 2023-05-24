@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
     <title>등록하기</title>
   </head>
   <body>
@@ -23,14 +24,14 @@
     </nav>
     <div class="text_register">등록하기</div>
     <div class="box_out">
-      <fieldset class="fieldset-title">
+      <fieldset class="fieldset_title">
         <p>
           <label>Title </label>
           <input type="text" />
         </p>
       </fieldset>
       <br />
-      <fieldset class="fieldset-group">
+      <fieldset class="fieldset_group">
         <p>
           <label>그룹명 </label>
           <input type="text" />
