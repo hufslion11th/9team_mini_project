@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{%load static%}
+{% load static %}
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'styles.css' %}" />
     <title>등록하기</title>
+    <style>
+      .selected {
+        background-color: #2263ab;
+        color: white;
+        border-radius: 2px;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -27,65 +34,197 @@
       <fieldset class="fieldset_title">
         <p>
           <label>Title </label>
-          <input type="text" />
+          <input type="text" id="titleInput" />
         </p>
       </fieldset>
       <br />
       <fieldset class="fieldset_group">
         <p>
           <label>그룹명 </label>
-          <input type="text" />
+          <input type="text" id="groupNameInput" />
         </p>
         <p>
           <label>모집기간 </label>
-          <input type="text" />
+          <input type="text" id="recruitmentPeriodInput" />
         </p>
         <p>
           <label>모집인원 </label>
-          <input type="text" />
+          <input type="text" id="recruitmentCountInput" />
         </p>
         <p>
           <label>지원링크 </label>
-          <input type="text" />
+          <input type="text" id="supportLinkInput" />
         </p>
         <p>
           <label>그룹로고 </label>
-          <input type="text" />
+          <input type="text" id="groupLogoInput" />
         </p>
       </fieldset>
       <br />
       <div>
         <h4>분야</h4>
         <p>
-          <input class="button" type="button" value="동아리" />
-          <input class="button" type="button" value="학회" />
-          <input class="button" type="button" value="스터디" />
-          <input class="button" type="button" value="복사" />
-          <input class="button" type="button" value="예술" />
-          <input class="button" type="button" value="어학" />
-          <input class="button" type="button" value="종교" />
-          <input class="button" type="button" value="IT" />
-          <input class="button" type="button" value="스포츠" />
-          <input class="button" type="button" value="기타" />
+          <input
+            class="button"
+            type="button"
+            value="동아리"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="학회"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="스터디"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="복사"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="예술"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="어학"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="종교"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="IT"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="스포츠"
+            onclick="selectField(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="기타"
+            onclick="selectField(this)"
+          />
         </p>
       </div>
       <br />
       <div>
         <h4>성격</h4>
         <p>
-          <input class="button" type="button" value="화목" />
-          <input class="button" type="button" value="열정적" />
-          <input class="button" type="button" value="친목" />
-          <input class="button" type="button" value="자율" />
-          <input class="button" type="button" value="전문적" />
+          <input
+            class="button"
+            type="button"
+            value="화목"
+            onclick="selectPersonality(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="열정적"
+            onclick="selectPersonality(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="친목"
+            onclick="selectPersonality(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="자율"
+            onclick="selectPersonality(this)"
+          />
+          <input
+            class="button"
+            type="button"
+            value="전문적"
+            onclick="selectPersonality(this)"
+          />
         </p>
       </div>
       <fieldset class="fieldset-text">
         <p>
           <label>Text </label>
-          <input type="text" />
+          <input type="text" id="textInput" />
         </p>
       </fieldset>
+      <br />
+      <input type="button" value="등록하기" onclick="submitData()" />
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      function selectField(button) {
+        button.classList.toggle("selected");
+        console.log("분야:", button.value);
+      }
+
+      function selectPersonality(button) {
+        button.classList.toggle("selected");
+        console.log("성격:", button.value);
+      }
+
+      function submitData() {
+        // 입력된 데이터 가져오기
+        let title = document.getElementById("titleInput").value;
+        let groupName = document.getElementById("groupNameInput").value;
+        let recruitmentPeriod = document.getElementById(
+          "recruitmentPeriodInput"
+        ).value;
+        let recruitmentCount = document.getElementById(
+          "recruitmentCountInput"
+        ).value;
+        let supportLink = document.getElementById("supportLinkInput").value;
+        let groupLogo = document.getElementById("groupLogoInput").value;
+        let text = document.getElementById("textInput").value;
+
+        // 데이터 객체 생성
+        const data = {
+          title: title,
+          groupName: groupName,
+          recruitmentPeriod: recruitmentPeriod,
+          recruitmentCount: recruitmentCount,
+          supportLink: supportLink,
+          groupLogo: groupLogo,
+          field: field,
+          personality: Personality,
+          text: text,
+        };
+
+        console.log(data);
+
+        // 데이터를 서버로 전송
+        axios
+          .post("", data)
+          .then(function (response) {
+            console.log(response.data);
+            // 서버로부터의 응답 출력
+            // 여기에 원하는 동작 추가
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    </script>
   </body>
 </html>
