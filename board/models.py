@@ -13,6 +13,7 @@ class Group(models.Model):
 
     # 그룹 로고
     logo = models.ImageField(blank=True, null=True, upload_to = 'logo/%Y%m%d')
+    
     # 그룹의 종류 선택지
     GROUP_TYPE_CHOICES = [
         ('동아리', '동아리'),
